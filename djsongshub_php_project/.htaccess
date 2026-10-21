@@ -1,0 +1,43 @@
+# STM Music Portal - Clean SEO URLs & Optimization
+RewriteEngine On
+RewriteBase /
+
+# Force HTTPS (optional in production)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Clean Song URL: /song/sample-slug or /song/sample-slug/ -> song.php?slug=sample-slug
+RewriteRule ^song/([a-zA-Z0-9_-]+)/?$ song.php?slug=$1 [L,QSA]
+
+# Clean Category URL: /category/sample-slug or /category/sample-slug/ -> category.php?slug=sample-slug
+RewriteRule ^category/([a-zA-Z0-9_-]+)/?$ category.php?slug=$1 [L,QSA]
+RewriteRule ^categories/?$ category.php [L,QSA]
+
+# Clean Album URL: /album/sample-slug or /album/sample-slug/ -> album.php?slug=sample-slug
+RewriteRule ^album/([a-zA-Z0-9_-]+)/?$ album.php?slug=$1 [L,QSA]
+RewriteRule ^albums/?$ album.php [L,QSA]
+
+# Clean Artist URL: /artist/sample-slug or /artist/sample-slug/ -> artist.php?slug=sample-slug
+RewriteRule ^artist/([a-zA-Z0-9_-]+)/?$ artist.php?slug=$1 [L,QSA]
+
+# Clean Tag URL: /tag/sample-slug or /tag/sample-slug/ -> tag.php?slug=sample-slug
+RewriteRule ^tag/([a-zA-Z0-9_-]+)/?$ tag.php?slug=$1 [L,QSA]
+
+# Clean Page URL: /page/sample-slug or /page/sample-slug/ -> page.php?slug=sample-slug
+RewriteRule ^page/([a-zA-Z0-9_-]+)/?$ page.php?slug=$1 [L,QSA]
+
+# Clean Download URL: /download/sample-slug or /download/sample-slug/ -> download.php?slug=sample-slug
+RewriteRule ^download/([a-zA-Z0-9_-]+)/?$ download.php?slug=$1 [L,QSA]
+
+# Sitemap route
+RewriteRule ^sitemap\.xml$ sitemap.xml.php [L]
+
+# Prevent directory listings
+Options -Indexes
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>

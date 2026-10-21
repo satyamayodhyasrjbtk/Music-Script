@@ -1,0 +1,6 @@
+{
+  "name": "STM Music Portal & DJ Remix Hub",
+  "description": "High-speed song downloading portal and audio streaming engine with complete PHP 8.3/8.4/8.5 script suite, AdSense-ready layouts, audio player, and admin dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
